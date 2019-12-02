@@ -1,16 +1,21 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 const Handlebars = require('handlebars');
-var data = require('./data/data.js');
+var UserController = require('./controllers/userController.js');
 try {
   (async() => {
 
     // Rendering Handlebars template
-    var source = fs.readFileSync(__dirname + '/index.html','utf8');
+    var source = fs.readFileSync(__dirname + '/views/index.html','utf8');
     var template = Handlebars.compile(source);
-    var result = template(data);
+
+    // Get User Data From User Controller;
+    var returnedUser = UserController.getUserById(1);
     
-    // Generating pdf using puppeteer
+
+    var result = template(returnedUser);
+    
+    // // Generating pdf using puppeteer
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
     await page.setContent(result, {
