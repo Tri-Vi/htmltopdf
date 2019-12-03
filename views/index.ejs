@@ -1,0 +1,21 @@
+<style>
+  .footer {
+    color: red;
+  }
+
+  .header {
+    color: green;
+  }
+
+  .title {
+    color: blue;
+  }
+</style>
+<%- include('./partials/header'); -%>
+<h1 class="title">
+  Title
+</h1>
+<p>
+  My name is  <%= user.name %>
+</p>
+<%- include('./partials/footer'); -%>

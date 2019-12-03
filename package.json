@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/Tri-Vi/htmltopdf#readme",
   "dependencies": {
+    "ejs": "^3.0.1",
     "handlebars": "^4.5.3",
+    "handlebars-layout": "^0.1.4",
     "puppeteer": "^2.0.0"
   }
 }
