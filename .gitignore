@@ -8,3 +8,6 @@ package-lock.json
 
 # pdf 
 example.pdf
+
+#img folder
+publics/assets/img/*

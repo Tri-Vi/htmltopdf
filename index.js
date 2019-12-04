@@ -5,15 +5,13 @@ var UserController = require('./controllers/userController.js');
 var template = ('./views/index.ejs');
 var html;
 
-
-
 try {
   (async() => {
     
 
     // Get User Data From User Controller;
     var returnedUser = UserController.getUserById(1);
-
+    
     await ejs.renderFile(template, {user: returnedUser}, function(err,str){
       if(err){
         console.log(err);
