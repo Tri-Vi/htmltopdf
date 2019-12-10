@@ -13,3 +13,17 @@ example.pdf
 publics/assets/img/*
 data/dev_data_reports_1a.js
 data/Report.js
+public/img/bcm-cvdlogo-outlined.png
+public/img/bcm-gradient-heartcare.png
+public/img/bcmlogo.jpg
+public/img/blankSignature.png
+public/img/cvdlogo-outlined.png
+public/img/cvdlogo.png
+public/img/document.pdf
+public/img/favicon.ico
+public/img/hgsclogo.png
+public/img/report_icons/high_prs_icon.png
+public/img/report_icons/low_prs_icon.png
+public/img/report_icons/moderate_prs_icon.png
+public/img/report_icons/neg_lpa_icon.png
+*.png

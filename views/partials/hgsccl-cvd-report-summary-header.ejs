@@ -1,1 +1,84 @@
-This is report summary header
+<style>
+  .cvdlogo {
+    height: 80px;
+  }
+  .bcmlogo {
+    height: 80px;
+    float: right
+  }
+  .hgsclogo {
+    height: 80px;
+  }
+  .qrcode {
+    height: 80px;
+  }
+  .summaryTitle {
+    text-align: center;
+    font-size: 21pt;
+    color: rgb(34, 79, 119);
+    letter-spacing: 2px;
+    font-weight: bold;
+
+  }
+  .patientTitle {
+    text-align: center;
+    font-weight: normal;
+    color: rgb(64, 103, 138);
+    font-size: 13pt;
+  }
+
+  .logo {
+    border: 1px dashed red;
+    justify-content: flex-end;
+  }
+
+  #summary-header{
+    border: 1px solid black;
+    margin-bottom: 5px;
+  }
+
+  .horizontal {
+    display: flex;
+    flex-direction: row;
+  }
+  .vertical {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .left-logo {
+    align-self: flex-start;
+    border: 1px solid green;
+  }
+
+  .right-logo {
+    align-self: flex-end;
+    border: 1px solid blue;
+  }
+</style>
+<div class="horizontal" id="summary-header">
+  <div class="vertical left-logo">
+    <div class="">
+      <img src="<%= cvdlogo %>" class="cvdlogo" alt="">
+      
+    </div>
+    <div class="summaryTitle">
+      Genetics Report Summary
+    </div>
+  </div>
+
+  <div class="vertical right-logo">
+    <div class="horizontal logo">
+      <img src="<%= bcmlogo %>" class="bcmlogo"></img>
+      <img src="<%= hgsclogo %>" class="hgsclogo"></img>
+      <img src="<%= qrcode %>" class="qrcode"></img>
+    </div>
+
+    <% if (isPhiChecked) { %>
+      <div class="patientTitle">
+        Patient: <%= order.patient.patientFirstName %> <%= order.patient.patientMiddleName %> <%= order.patient.patientLastName %>
+      </div>
+    <% } %>
+
+  </div>
+</div>

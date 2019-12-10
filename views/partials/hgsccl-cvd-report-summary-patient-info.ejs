@@ -1,1 +1,92 @@
-this is report summary patient information
+<style>
+   
+    .label {
+      text-align: center;
+    }
+    .label.bold {
+      font-weight: bold;
+      color: rgb(34,79,119);
+    }
+    .layout {
+      font-family: 'Roboto', sans-serif !important;
+      font-size: 11pt;
+    }
+    .data {
+      text-align: left;
+    }
+    tr:nth-child(odd) {
+      /* background-color: var(--primary-report-color); */
+    }
+
+    td:nth-child(even) {
+      width: 25%;
+      color: red;
+    }
+
+    td:nth-child(odd){
+      width: 25%;
+    }
+
+    table {
+      width: 100%;
+      /* background-color: rgb(222, 235, 246);
+      box-shadow: 2px 2px rgb(182, 182, 182); */
+      background-color: red;
+      box-shadow: 2px 2px rgb(182, 182, 182);
+    }
+  </style>
+  <div class="layout horizontal center-justified">
+    <table>
+      <tr>
+        <% if(isPhiChecked) { %>
+          <td class="label bold">
+            Patient:
+          </td>
+          <td class="data">
+            <%= order.patient.patientFirstName %> <%=order.patient.patientMiddleName %> <%= order.patient.patientLastName %>
+          </td>
+        <% } %> 
+        <td class="label bold">
+          Reason for Testing:
+        </td>
+        <td class="data">
+          <%= order.indications %>
+        </td>
+      </tr>
+      <tr>
+        <template is="dom-if" if="[[isPhiChecked]]">
+          <td class="label">
+            Date of Birth:
+          </td>
+          <td class="data">
+            <%= order.patient.patientDOB %>
+          </td>
+        </template>
+        <td class="label">
+          Ordered By:
+        </td>
+        <td class="data">
+          <%= order.physician.name %>
+        </td>
+      </tr>
+      <tr>
+        <% if(isPhiChecked) { %>
+          <td class="label">
+              MRN:
+            </td>
+            <td class="data">
+              <%= order.patient.mrn %>
+            </td>
+        <% } %>  
+
+        <% if(reportState == 'Approved'){ %> 
+          <td class="label">
+              Report Date:
+            </td>
+            <td class="data">
+              <%= reportStateChanged %>
+            </td>
+         <% } %>  
+      </tr>
+    </table>
+  </div>
