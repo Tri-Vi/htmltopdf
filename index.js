@@ -95,6 +95,7 @@ try {
       path: 'example.pdf',
       format: 'Letter',
       scale: .75,
+      printBackground: true
     });
 
     await browser.close();
