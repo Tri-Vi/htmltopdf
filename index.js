@@ -31,6 +31,8 @@ var moderatePrsIcon = "./public/img/report_icons/moderate_prs_icon.png";
 var lowPrsIcon = "./public/img/report_icons/low_prs_icon.png";
 var posLpaIcon = "./public/img/report_icons/pos_lpa_icon.png";
 var negLpaIcon = "./public/img/report_icons/neg_lpa_icon.png";
+var positivePgxIcon = "./public/img/report_icons/positive_pgx_icon.png";
+var negativePgxIcon = "./public/img/report_icons/negative_pgx_icon.png";
 
 // Base64 Images
 var base64_cvd_logo = base64Img.base64Sync(cvd_logo);
@@ -43,7 +45,8 @@ var base64_moderatePrsIcon = base64Img.base64Sync(moderatePrsIcon);
 var base64_lowPrsIcon = base64Img.base64Sync(lowPrsIcon);
 var base64_posLpaIcon = base64Img.base64Sync(posLpaIcon);
 var base64_negLpaIcon = base64Img.base64Sync(negLpaIcon);
-
+var base64_positivePgxIcon = base64Img.base64Sync(positivePgxIcon);
+var base64_negativePgxIcon = base64Img.base64Sync(negativePgxIcon);
 
 try {
   (async() => {
@@ -95,7 +98,10 @@ try {
       moderatePrsIcon: base64_moderatePrsIcon,
       lowPrsIcon: base64_lowPrsIcon,
       posLpaIcon: base64_posLpaIcon,
-      negLpaIcon: base64_negLpaIcon
+      negLpaIcon: base64_negLpaIcon,
+      positivePgxIcon: base64_positivePgxIcon,
+      negativePgxIcon: base64_negativePgxIcon,
+
     }, function(err,str){
       if(err){
         console.log(err);

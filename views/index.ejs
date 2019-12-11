@@ -295,7 +295,12 @@
 }); %>
 
 <!-- Summary PGX-->
-<%- include('./partials/hgsccl-cvd-report-summary-pharmacogenetics-finding'); %>
+<%- include('./partials/hgsccl-cvd-report-summary-pharmacogenetics-finding', {
+  pgxFinding: report.pgxFinding,
+  pgxSummaryRecommendation: report.pgxSummaryRecommendation,
+  positivePgxIcon: positivePgxIcon,
+  negativePgxIcon: negativePgxIcon
+}); %>
 <br>
 
 <!-- Summary Addendum-->

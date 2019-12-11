@@ -1,1 +1,60 @@
-this is report summary pharmacogenetics findings
+<style>
+  .title {
+    font-size: 12pt;
+  }
+  .detail {
+    font-size: 9pt;
+  }
+  .content {
+    font-size: 11pt;
+  }
+  .bold {
+    font-weight: 700 !important;
+  }
+  .pgxSummaryRecommendation {
+    padding-bottom: 5px;
+  }
+  .pgxSummaryRecommendation:last-of-type {
+    padding-bottom: 0px;
+  }
+
+  </style>
+  <!-- New -->
+  <% if(pgxFinding.toLowerCase() === 'positive'){ %>
+    <div class="component border-summary-pgx-positive">
+      <div class="title pharmacoPositive">
+        <img src="<%= positivePgxIcon.png %>" alt="positive_pgx" class="icon">
+        <span>Pharmacogenetics Findings </span>
+        <span class="detail">Details in Section 4</span>
+      </div>
+
+      <% for(var i = 0; i<pgxSummaryRecommendation.length; i++) { %>
+        <div class="pgxSummaryRecommendation">
+          <p class="content"><%= pgxSummaryRecommendation[i].summary %></p>
+          <p class="content">
+            <span class="bold">Recommendations: </span><%= pgxSummaryRecommendation[i].recommendation %>
+          </p>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
+
+  <!-- New -->
+  <% if(pgxFinding.toLowerCase() === 'negative'){ %>
+    <div class="component border-summary-pgx-negative">
+      <div class="title pharmacoNegative">
+        <img src="<%= negativePgxIcon %>" alt="negative_pgx" class="icon">
+        <span>Pharmacogenetics Findings </span>
+        <span class="detail">Details in Section 4</span>
+      </div>
+
+      <% for(var i = 0; i<pgxSummaryRecommendation.length; i++) { %>
+        <div class="pgxSummaryRecommendation">
+          <p class="content"><%= pgxSummaryRecommendation[i].summary %></p>
+          <p class="content">
+            <span class="bold">Recommendations: </span><%= pgxSummaryRecommendation[i].recommendation %>
+          </p>
+        </div>
+      <% } %>
+    </div>
+  <% } %>
