@@ -1,1 +1,39 @@
-This is report summary lpa
+
+<style>
+  .title {
+    font-size: 12pt;
+  }
+  .detail {
+    font-size: 9pt;
+  }
+  .content {
+    font-size: 11pt;
+  }
+</style>
+
+<!-- POSITIVE -->
+<% if(lpaFinding.toLowerCase() === 'positive'){ %>
+  <div class="component border-summary-lpa-pos">
+    <div class="title positiveLpa">
+      <img src="<%= posLpaIcon %>" alt="pos_lpa" class="icon">
+      <span>LPA Risk Variants</span>
+      <span class="detail">Details in Section 3</span>
+    </div>
+    <p class="content"><%= lpaSummary %></p>
+    <p class="content">
+      <b>Recommendations: </b><%= lpaRecommendation %>
+    </p>
+  </div>
+<% } %>
+
+<!-- NEGATIVE -->
+<% if(lpaFinding.toLowerCase() === 'negative'){ %>
+  <div class="component border-summary-lpa-neg">
+    <div class="title negativeLpa">
+      <img src="<%= negLpaIcon %>" alt="neg_lpa" class="icon">
+      <span>LPA Risk Variants</span>
+      <span class="detail">Details in Section 3</span>
+    </div>
+    <p class="content"><%= lpaSummary %></p>
+  </div>
+  <% } %>

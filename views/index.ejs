@@ -286,8 +286,13 @@
 }); %>
 
 <!-- Summary LPA -->
-<%- include('./partials/hgsccl-cvd-report-summary-lpa'); %>
-<br>
+<%- include('./partials/hgsccl-cvd-report-summary-lpa', {
+  lpaRecommendation: report.lpaRecommendation,
+  lpaSummary: report.lpaSummary,
+  lpaFinding: report.lpaFinding,
+  posLpaIcon: posLpaIcon,
+  negLpaIcon: negLpaIcon
+}); %>
 
 <!-- Summary PGX-->
 <%- include('./partials/hgsccl-cvd-report-summary-pharmacogenetics-finding'); %>
