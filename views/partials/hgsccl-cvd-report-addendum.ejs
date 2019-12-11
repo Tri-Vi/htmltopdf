@@ -1,1 +1,20 @@
-this is report addendum
+<style>
+    .content {
+      font-size: 10pt;
+    }
+    .title {
+       font-size: 13pt;
+    }
+</style>
+<% if((addendums !== undefined) && (addendums !== null) && (addendums.length > 0)) { %>
+  <div class="component border">
+    <div class="title">Modifications to Report</div>
+    <div class="content">
+      <ul>
+        <% for (var i=0; i < addendums.length; i++) { %>
+          <li><%= addendums[i].date %> - <%= addendums[i].reportChangeDetail %></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+<% } %>

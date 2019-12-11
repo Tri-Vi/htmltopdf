@@ -345,8 +345,9 @@
 
 
 <!-- Report Addendum -->
-<%- include('./partials/hgsccl-cvd-report-addendum'); -%>
-<br>
+<%- include('./partials/hgsccl-cvd-report-addendum', {
+  addendums: report.addendums
+}); -%>
 
 <!-- Report Overal Interpretation-->
 <%- include('./partials/hgsccl-cvd-report-overall-interpretation'); %>
