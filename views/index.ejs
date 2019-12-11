@@ -329,17 +329,20 @@
   hgsclogo: hgsc_logo,
   qrcode: qr_code
 }); %>
-<br>
 
 <!-- Test Info Detail-->
 <%- include('./partials/hgsccl-cvd-report-test-info-detail', {
   testInfoDetail: report.testInfoDetail
 }); %>
-<br>
 
 <!-- Patient Info-->
-<%- include('./partials/hgsccl-cvd-report-patient-information'); %>
-<br>
+<%- include('./partials/hgsccl-cvd-report-patient-information', {
+  stateChanged: report.stateChanged,
+  order: report.order,
+  state: report.state,
+  isPhiChecked: isPhiChecked
+}); %>
+
 
 <!-- Report Addendum -->
 <%- include('./partials/hgsccl-cvd-report-addendum'); -%>

@@ -1,1 +1,116 @@
-this is report patient information
+<style>
+    .section {
+      @apply(--layout-horizontal);
+    }
+    .label {
+      text-align: left;
+
+    }
+    .label.bold {
+      color: rgb(34,79,119);
+      font-weight: bold;
+    }
+    .layout {
+      font-size: 11pt;
+      font-family: 'Open Sans', sans-serif;;
+    }
+    .data {
+      text-align: left;
+    }
+
+    table {
+      width: 100%;
+      background-color: var(--patient-table);
+    }
+    #patientInfoTable {
+      border: 1px solid black;
+      box-shadow: none;
+    }
+    td {
+      padding-left: 5px;
+    }
+    td.cell {
+      width: calc(100% / 3);
+      vertical-align: top;
+    }
+    td.colspan {
+      border-top: 1px solid black;
+      padding-top: 5px;
+      padding-bottom:5px;
+    }
+    td.cell.middle {
+      border-left: 1px solid black;
+      border-right: 1px solid black;
+    }
+    td.cell p {
+      margin: 0;
+    }
+</style>
+<div class="component">
+  <div class="layout horizontal center-justified">
+    <table id="patientInfoTable">
+        <tr>
+          <td class="cell">
+            <p class="label bold">Ordering Physician:<p>
+            <p class="data"><%= order.physician.name %></p>
+            <p class="data"><%= order.physician.address1 %></p>
+            <p class="data"><%= order.physician.address2 %></p>
+            <p class="data"><%= order.physician.city %>, <%= order.physician.state %> <%= order.physician.zipcode %></p>
+            <p class="data">Ph: <%= order.physician.phone %></p>
+          </td>
+          <td class="cell middle">
+            <% if(isPhiChecked){ %>
+              <p>
+                <span class="label bold">Patient Name:</span>
+                <span class="data"><%= order.patient.patientFirstName %> <%= order.patient.patientMiddleName %> <%= order.patient.patientLastName %></span>
+              </p>
+              <p>
+                <span class="label">Date of Birth:</span>
+                <span class="data"><%= order.patient.patientDOB %></span>
+              </p>
+              <p>
+                <span class="label">Sex:</span>
+                <span class="data"> <%= order.patient.sex %></span>
+              </p>
+              <p>
+                <span class="label">MRN:</span>
+                <span class="data"><%= order.patient.mrn %></span>
+              </p>
+              <% } %>
+              <p>
+                <span class="label">Specimen Identifier:</span>
+                <span class="data"><%= order.specimen.external_id %></span>
+              </p>
+            </td>
+            <td class="cell">
+              <p>
+                <span class="label">HGSC-CL Accession No:</span>
+                <span class="data"><%= order.specimen.accession_id %></span>
+              </p>
+              <p>
+                <span class="label">Specimen Type:</span>
+                <span class="data"><%= order.specimen.type %></span>
+              </p>
+              <p>
+                <span class="label">Specimen Collection Date:</span>
+                <span class="data"><%= order.specimen.specimenCollectionDate %></span>
+              </p>
+              <% if(state.toLowerCase()=== 'approved') { %>
+                <p>
+                  <span class="label">Report Date:</span>
+                  <span class="data"><%= stateChanged %></span>
+                </p>
+              <% } %>
+          </td>
+        </tr>
+        <tr>
+            <td class="colspan" colspan="3">
+              <p>
+                <span class="label bold">Reason for Testing:</span>
+                <span class="data"><%= order.indications %></span>
+            </p>
+          </td>
+        </tr>
+      </table>
+  </div>
+</div>

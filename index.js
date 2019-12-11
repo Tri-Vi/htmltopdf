@@ -67,10 +67,23 @@ try {
         patientMiddleName: "Middle",
         patientLastName: "Last",
         patientDOB: new Date(),
-        mrn: 'MRN_1234'
+        mrn: 'MRN_1234',
+        sex: 'Male'
       },
       physician: {
-        name: 'ABC'
+        name: 'ABC',
+        address1: 'address1',
+        address2: 'address2',
+        city: 'city',
+        state: 'state',
+        zipcode: 'zipcode',
+        phone:'111-222-3333'
+      },
+      specimen: {
+        external_id: 'external_id',
+        accession_id:'accession_id',
+        type: 'Blood',
+        specimenCollectionDate: new Date()
       }
     };
     selectedReport.state = "Approved";
