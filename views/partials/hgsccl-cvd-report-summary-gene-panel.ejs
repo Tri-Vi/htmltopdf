@@ -1,1 +1,41 @@
-this is summary gene panel
+<style>
+  .title {
+    font-size: 12pt;
+  }
+  .detail {
+    font-size: 9pt;
+  }
+  .content {
+    font-size: 11pt;
+  }
+</style>
+
+<!-- New -->
+<% if(panelFinding.toLowerCase() == "positive") { %>
+  <div class="component border-summary-gene-panel-positive">
+    <div class="title positive">
+      <img src="<%= positiveGenePanelIcon %>" alt="postive_gene_panel" class="icon">
+      <span>158 Cardiac Gene Panel: <%= panelFinding %></span>
+      <span class="detail">Details in Section 1</span>
+    </div>
+    <p class="content">
+      <b>Positive Result: </b><%= panelSummary %>
+    </p>
+    <p class="content">
+      <b>Recommendations: </b><%= panelRecommendation %>
+    </p>
+  </div>
+<% } %>
+
+<!-- New -->
+<% if(panelFinding.toLowerCase() == "negative") { %>
+  <div class="component border-summary-gene-panel-negative">
+    <div class="title negative">
+      <img src="<%= negativeGenePanelIcon %>" alt="negative_gene_panel" class="icon"> 158 <span>Cardiac Gene Panel: <%= panelFinding %></span>
+      <span class="detail">Details in Section 1</span>
+    </div>
+    <p class="content">
+      <%= panelSummary %>
+    </p>
+  </div>
+<% } %>

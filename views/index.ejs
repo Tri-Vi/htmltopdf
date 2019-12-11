@@ -1,5 +1,244 @@
 <style>
-  
+  :root {
+        --primary-report-color: rgb(236, 245, 251);
+        --secondary-report-color: rgb(173, 203, 226);
+        --gene-panel-positive: rgb(203, 70, 69);
+        --gene-panel-negative: rgb(85, 129, 57);
+        --prs-high: rgb(234, 113, 43);
+        --prs-moderate: rgb(222, 167, 42);
+        --prs-low: rgb(116, 116, 116);
+        --lpa-neg: rgb(85, 129, 57);
+        --lpa-pos: rgb(234, 113, 43);;
+        --pgx-positive: rgb(40, 105, 172);
+        --pgx-negative: rgb(133, 151, 175);
+        --grey: rgb(117, 117, 117);
+        --patient-table: rgb(222, 235, 246);
+        --patient-table-box-shadow: rgb(182, 182, 182);
+        font-family: 'Open Sans', sans-serif;
+      }
+      .component {
+        margin: 15px 20px;
+        display: block;
+      }
+      .table {
+        page-break-inside: avoid;
+      }
+
+      .component.border {
+        border: 1px var(--grey) solid;
+      }
+      .component.border-summary{
+        border: 1px var(--secondary-report-color) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+      .component.border-summary-gene-panel-positive {
+        border: 1px var(--gene-panel-positive) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-summary-gene-panel-negative {
+        border: 1px var(--gene-panel-negative) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-summary-prs-high {
+        border: 1px var(--prs-high) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-summary-prs-moderate {
+        border: 1px var(--prs-moderate) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-summary-prs-low {
+        border: 1px var(--prs-low) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-summary-lpa-neg {
+        border: 1px var(--lpa-neg) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-summary-lpa-pos {
+        border: 1px var(--lpa-pos) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-summary-pgx-positive {
+        border: 1px var(--pgx-positive) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-summary-pgx-negative {
+        border: 1px var(--pgx-negative) solid;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        overflow: hidden;
+      }
+
+      .component.border-gene-panel-positive {
+        border: 1px var(--gene-panel-positive) solid;
+      }
+
+      .component.border-gene-panel-negative {
+        border: 1px var(--gene-panel-negative) solid;
+      }
+
+      .component.border-prs-high {
+        border: 1px var(--prs-high) solid;
+      }
+
+      .component.border-prs-moderate {
+        border: 1px var(--prs-moderate) solid;
+      }
+
+      .component.border-prs-low {
+        border: 1px var(--prs-low) solid;
+      }
+
+      .component.border-lpa-pos {
+        border: 1px var(--lpa-pos) solid;
+      }
+
+      .component.border-lpa-neg {
+        border: 1px var(--lpa-neg) solid;
+      }
+
+      .component.border-pgx-positive {
+        border: 1px var(--pgx-positive) solid;
+      }
+
+      .component.border-pgx-negative {
+        border: 1px var(--pgx-negative) solid;
+      }
+
+      .title {
+        background-color: var(--grey);
+        font-weight: bold;
+        padding: 10px 10px;
+        color: white;
+        padding-top: 12px;
+        padding-bottom: 12px;
+      }
+      .tableTitle {
+        font-weight: bold;
+        padding: 0px 10px;
+      }
+      .content {
+        padding: 0px 10px;
+        line-height: 1.4
+      }
+      .content.bold {
+        font-weight: bold;
+      }
+      .positive {
+        background-color: var(--gene-panel-positive);
+        color: white;
+      }
+
+      .negative {
+        background-color: var(--gene-panel-negative);
+        color: white;
+      }
+
+      .positiveIcon {
+        color: white;
+      }
+
+      .negativeIcon {
+        color: white;
+      }
+
+      .highRiskScore {
+        background-color: var(--prs-high);
+        color: white;
+      }
+
+      .moderateRiskScore {
+        background-color: var(--prs-moderate);
+        color: white;
+      }
+
+      .lowRiskScore {
+        background-color: var(--prs-low);
+        color: white;
+      }
+
+      .highRiskScoreIcon {
+        color: white;
+      }
+
+      .moderateRiskScoreIcon {
+        color: white;
+      }
+
+      .lowRiskScoreIcon {
+        color: white;
+      }
+
+      .positiveLpa {
+        background-color: var(--lpa-pos);
+      }
+
+      .negativeLpa {
+        background-color: var(--lpa-neg);
+      }
+
+      .pharmacoPositive {
+        background-color: var(--pgx-positive);
+        color: white;
+      }
+
+      .pharmacoNegative {
+        background-color: var(--pgx-negative);
+        color: white;
+      }
+
+      .pharmacoPositiveIcon {
+        color: white;
+      }
+
+      .pharmacoPositiveIcon {
+        color: white;
+      }
+
+      .detail {
+        float: right;
+        color: white;
+        font-size: 12px;
+      }
+
+      .icon {
+        width: 20px;
+        height: 20px;
+      }
+
+      .horizontalLine {
+        margin-top: 150px;
+        margin-bottom: 50px;
+      }
+
+
 </style>
 
 <!-- Summary Header-->
@@ -30,7 +269,13 @@
 <br>
 
 <!-- Summary Gene Panel-->
-<%- include('./partials/hgsccl-cvd-report-summary-gene-panel'); %>
+<%- include('./partials/hgsccl-cvd-report-summary-gene-panel', {
+  panelFinding: report.panelFinding,
+  panelSummary: report.panelSummary,
+  panelRecommendation: report.panelRecommendation,
+  negativeGenePanelIcon: negativeGenePanelIcon,
+  positiveGenePanelIcon: positiveGenePanelIcon
+}); %>
 <br>
 
 <!-- Summary PRS-->
