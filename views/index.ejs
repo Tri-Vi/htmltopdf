@@ -332,7 +332,9 @@
 <br>
 
 <!-- Test Info Detail-->
-<%- include('./partials/hgsccl-cvd-report-test-info-detail'); %>
+<%- include('./partials/hgsccl-cvd-report-test-info-detail', {
+  testInfoDetail: report.testInfoDetail
+}); %>
 <br>
 
 <!-- Patient Info-->
