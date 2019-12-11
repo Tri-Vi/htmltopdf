@@ -315,14 +315,20 @@
   }); %>
 <% } %>
 
-<br>
-
 <div style="page-break-before: always;"></div>
 
 <hr class="horizontalLine">
 
 <!-- Report Header-->
-<%- include('./partials/hgsccl-cvd-report-header'); %>
+<%- include('./partials/hgsccl-cvd-report-header', {
+  order: report.order,
+  reportIdentifier: report.reportIdentifier,
+  isPhiChecked: isPhiChecked,
+  cvdlogo: cvd_logo,
+  bcmlogo: bcm_logo,
+  hgsclogo: hgsc_logo,
+  qrcode: qr_code
+}); %>
 <br>
 
 <!-- Test Info Detail-->
