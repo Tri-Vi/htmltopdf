@@ -1,1 +1,18 @@
-this is report summary addendum
+<style>
+    .content {
+      font-size: 10pt;
+    }
+  </style>
+  <div class="component">
+    <% if((addendums !== undefined) && (addendums !== null) && (addendums.length > 0)) { %>
+      <div class="content">
+        <ul>
+          <% for(var i=0; i<addendums.length; i++) { %>
+          
+            <li><%= addendums[i].date %> - <%= addendums[i].reportChangeSummary %></li>
+          <% } %>
+        </ul>
+      </div>
+    <% } %>
+  </div>
+  
