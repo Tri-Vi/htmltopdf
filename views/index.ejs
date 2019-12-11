@@ -301,21 +301,25 @@
   positivePgxIcon: positivePgxIcon,
   negativePgxIcon: negativePgxIcon
 }); %>
-<br>
 
 <!-- Summary Addendum-->
 <%- include('./partials/hgsccl-cvd-report-summary-addendum', {
   addendums: report.addendums
 }); %>
-<br>
 
 <!-- Signature-->
-<%- include('./partials/hgsccl-cvd-report-signature'); %>
+<% if(report.state.toLowerCase()=== 'approved') { %>
+  <%- include('./partials/hgsccl-cvd-report-signature', {
+    stateChanged: report.stateChanged,
+    blankSignature: blankSignature
+  }); %>
+<% } %>
+
 <br>
 
-<!-- <div style="page-break-before: always;"></div>
+<div style="page-break-before: always;"></div>
 
-<hr class="horizontalLine"> -->
+<hr class="horizontalLine">
 
 <!-- Report Header-->
 <%- include('./partials/hgsccl-cvd-report-header'); %>
@@ -366,7 +370,13 @@
 <br>
 
 <!-- Report Signature -->
-<%- include('./partials/hgsccl-cvd-report-signature'); %>
+<!-- Signature-->
+<% if(report.state.toLowerCase()=== 'approved') { %>
+  <%- include('./partials/hgsccl-cvd-report-signature', {
+    stateChanged: report.stateChanged,
+    blankSignature: blankSignature
+  }); %>
+<% } %>
 
 <!-- Report Footer-->
 <%- include('./partials/hgsccl-cvd-report-footer', {user: user}); %>
