@@ -26,6 +26,9 @@ var bcm_logo = "./public/img/bcmlogo.jpg";
 var hgsc_logo = "./public/img/hgsclogo.png";
 var negativeGenePanelIcon = "./public/img/report_icons/negative_gene_panel_icon.png";
 var positiveGenePanelIcon = "./public/img/report_icons/positive_gene_panel_icon.png";
+var highPrsIcon = "./public/img/report_icons/high_prs_icon.png";
+var moderatePrsIcon = "./public/img/report_icons/moderate_prs_icon.png";
+var lowPrsIcon = "./public/img/report_icons/low_prs_icon.png";
 
 // Base64 Images
 var base64_cvd_logo = base64Img.base64Sync(cvd_logo);
@@ -33,7 +36,9 @@ var base64_bcm_logo = base64Img.base64Sync(bcm_logo);
 var base64_hgsc_logo = base64Img.base64Sync(hgsc_logo);
 var base64_negativeGenePanelIcon =  base64Img.base64Sync(negativeGenePanelIcon);
 var base64_positiveGenePanelIcon =  base64Img.base64Sync(positiveGenePanelIcon);
-
+var base64_highPrsIcon = base64Img.base64Sync(highPrsIcon);
+var base64_moderatePrsIcon = base64Img.base64Sync(moderatePrsIcon);
+var base64_lowPrsIcon = base64Img.base64Sync(lowPrsIcon);
 
 
 
@@ -82,7 +87,10 @@ try {
       hgsc_logo: base64_hgsc_logo,
       qr_code: base64_qr_code,
       negativeGenePanelIcon: base64_negativeGenePanelIcon,
-      positiveGenePanelIcon: base64_positiveGenePanelIcon
+      positiveGenePanelIcon: base64_positiveGenePanelIcon,
+      highPrsIcon: base64_highPrsIcon,
+      moderatePrsIcon: base64_moderatePrsIcon,
+      lowPrsIcon: base64_lowPrsIcon
     }, function(err,str){
       if(err){
         console.log(err);

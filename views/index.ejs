@@ -257,7 +257,6 @@
 <%- include('./partials/hgsccl-cvd-report-summary-test-info', {
   testInfoSummary: report.testInfoSummary
 }); %>
-<br>
 
 <!-- Summary Patient Info-->
 <%- include('./partials/hgsccl-cvd-report-summary-patient-info', {
@@ -266,7 +265,6 @@
   reportState: report.state,
   isPhiChecked: isPhiChecked,
 }); %>
-<br>
 
 <!-- Summary Gene Panel-->
 <%- include('./partials/hgsccl-cvd-report-summary-gene-panel', {
@@ -276,11 +274,16 @@
   negativeGenePanelIcon: negativeGenePanelIcon,
   positiveGenePanelIcon: positiveGenePanelIcon
 }); %>
-<br>
 
 <!-- Summary PRS-->
-<%- include('./partials/hgsccl-cvd-report-summary-polygenic-risk-score'); %>
-<br>
+<%- include('./partials/hgsccl-cvd-report-summary-polygenic-risk-score', {
+  prsRecommendation : report.prsRecommendation,
+  prsSummary: report.prsSummary,
+  prsFinding: report.prsFinding,
+  highPrsIcon: highPrsIcon,
+  moderatePrsIcon: moderatePrsIcon,
+  lowPrsIcon: lowPrsIcon
+}); %>
 
 <!-- Summary LPA -->
 <%- include('./partials/hgsccl-cvd-report-summary-lpa'); %>

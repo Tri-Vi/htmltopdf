@@ -1,1 +1,57 @@
-This is report summary polygenic risk score
+
+<style>
+  .title {
+    font-size: 12pt;
+  }
+  .detail {
+    font-size: 9pt;
+  }
+  .content {
+    font-size: 11pt;
+  }
+</style>
+
+<!-- HIGH -->
+<% if(prsFinding.toLowerCase() === 'high') { %>
+  <div class="component border-summary-prs-high">
+    <div class="title highRiskScore">
+      <img src="<%= high_prs_icon.png %>" alt="high_prs" class="icon">
+      <span>Coronary Artery Disease Polygenic Risk Score: <%= prsFinding %></span>
+      <span class="detail">Details in Section 2</span>
+    </div>
+    <p class="content"><%= prsSummary %></p>
+    <p class="content">
+      <b>Recommendations: </b><%= prsRecommendation %>
+    </p>
+  </div>
+<% } %>
+
+<!-- MODERATE -->
+<% if(prsFinding.toLowerCase() === 'moderate') { %>
+  <div class="component border-summary-prs-moderate">
+    <div class="title moderateRiskScore">
+      <img src="<%= moderatePrsIcon %>" alt="moderate_prs" class="icon">
+      <span>Coronary Artery Disease Polygenic Risk Score: <%= prsFinding %></span>
+      <span class="detail">Details in Section 2</span>
+    </div>
+    <p class="content"><%= prsSummary %></b></p>
+    <p class="content">
+      <b>Recommendations: </b><%= prsRecommendation %>
+    </p>
+  </div>
+<% } %>
+
+<!-- LOW -->
+<% if(prsFinding.toLowerCase() === 'low') { %>
+  <div class="component border-summary-prs-low">
+    <div class="title lowRiskScore">
+      <img src="<%= lowPrsIcon %> alt="low_prs" class="icon">
+      <span>Coronary Artery Disease Polygenic Risk Score: <%=  prsFinding %></span>
+      <span class="detail">Details in Section 2</span>
+    </div>
+    <p class="content"><%= prsSummary %></p>
+    <p class="content">
+      <b>Recommendations: </b><%= prsRecommendation %>
+    </p>
+  </div>
+<% } %>
