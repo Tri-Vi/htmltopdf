@@ -1,0 +1,45 @@
+<style>
+</style>
+<table>
+  <tr>
+    <th>Disease</th>
+    <th>Inheritance</th>
+    <th>Gene</th>
+    <th>Type</th>
+    <th>Variant</th>
+    <th>Zygosity</th>
+    <th>Interpretation</th>
+    <th>Notes</th>
+  </tr>
+  <% for (var i=0 ; i < variants.length; i++) { %> 
+    <tr>
+      <td><%= variants[i].diseases %></td>
+      <td><%= variants[i].inheritance %></td>
+      <td><%= variants[i].gene %></td>
+      <td><%= variants[i].gene %></td>
+      <!-- Variant Column-->
+      <td>
+        <!-- SNV-->
+        <% if(variants[i].type === 'SNV') { %>
+          <%= variants[i].cDNA %> <br/>
+
+          <% if((variants[i].proteinChange !== null) || (variants[i].proteinChange !== undefined) || (!variants[i].proteinChange == '')) { %> 
+            <%= variants[i].proteinChange %>
+          <% } %>
+          
+          <!-- Transcript -->
+          <%= variants[i].transcript %>
+        <% } %>
+        
+        <!-- CNV -->
+        <% if(variants[i].type === 'CNV') { %>
+          <%= variants[i].structuralChangeType %><br/>
+          <%= variants[i].geneRegion %>
+          
+          <!-- Transcript -->
+          <%= variants[i].transcript %>
+      </td>
+
+    </tr>
+  <% } %>
+</table>

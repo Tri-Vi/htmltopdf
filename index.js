@@ -60,6 +60,7 @@ try {
     // Get Report Data From Report Controller;
     var returnedReports = ReportController.getAllReport();
     var selectedReport = returnedReports[0];
+
     selectedReport.order = {
       indications: "A, B, C",
       patient: {
@@ -89,6 +90,8 @@ try {
     selectedReport.state = "Approved";
     selectedReport.stateChanged = new Date();
 
+    var reportableVariants =  _reportableVariant();
+
     // QR Code
     // var qr_string = "selectedReport.reportIdentifier";
     var qr_string = "1234";
@@ -116,7 +119,8 @@ try {
       negLpaIcon: base64_negLpaIcon,
       positivePgxIcon: base64_positivePgxIcon,
       negativePgxIcon: base64_negativePgxIcon,
-      blankSignature: base64_blankSignature
+      blankSignature: base64_blankSignature,
+      reportableVariants: reportableVariants
 
     }, function(err,str){
       if(err){
@@ -146,4 +150,11 @@ try {
   })();
 } catch(err) {
   console.log(err);
+}
+
+function _reportableVariant(variants){
+  if((variants === undefined) || (variants === null)){
+    return [];
+  }
+  return variants.filter(variant => variant.reportable == true);
 }

@@ -355,10 +355,14 @@
   familyScreening: report.familyScreening,
   panelManagementRecommendation: report.panelManagementRecommendation
 }); %>
-<br>
+
 
 <!-- Report Gene Panel-->
-<%- include('./partials/hgsccl-cvd-report-gene-panel'); %>
+<%- include('./partials/hgsccl-cvd-report-gene-panel',{
+  panelFinding: report.panelFinding,
+  report: report,
+  reportableVariants: reportableVariants
+}); %>
 <br>
 
 <!-- Report PRS -->

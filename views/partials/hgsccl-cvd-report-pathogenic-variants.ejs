@@ -1,0 +1,55 @@
+<style>
+    .content {
+      font-size: 11pt;
+    }
+    .padding {
+      padding-top: 15px;
+    }
+
+    .tableTitle {
+      font-size: 11pt;
+    }
+  </style>
+
+
+  <!-- New -->
+  <% if(report.noReportableVariantsText) {>
+    <div class="content bold padding">Pathogenic and Likely Pathogenic Variants</div>
+
+    <!-- cnvsFailed == true -->
+    <% if(report.cnvsFailed) {>
+      <p class="content"><%= report.noReportableVariantsText %></p>
+      <p class="content"><%= report.cnvsFailedText %></p>
+    <% } %>
+
+    <!-- cnvsFailed == false -->
+    <% if(!report.cnvsFailed) { %>
+      <p class="content"><%= report.noReportableVariantsText %></p>
+    <% } %>
+  <% } %>
+
+
+  <% if((variants !== undefined) && (variants !== null) && (variants.length > 0)) { %>
+
+    <% if((reportableVariants !== undefined) && (reportableVariants !== null) && (reportableVariants.length > 0)) { %>
+
+      <div class="content bold padding">Pathogenic and Likely Pathogenic Variants</div>
+
+      <% for(var i=0; i < reportableVariants.length; i++) { %>
+        <p class="content"><%= reportableVariants[i].variantInterpretation %></p>
+      <% } %>
+
+      <template is="dom-repeat" items="[[reportableVariants]]" as="variant">
+        <p class="content">[[variant.variantInterpretation]]</p>
+      </template>
+
+
+      <span class="tableTitle">Table : Details of Pathogenic and Likely Pathogenic Variants</span>
+      <hgsccl-report-variants-table
+        variants="[[reportableVariants]]"
+        class="component border">
+      </hgsccl-report-variants-table>
+
+    <% } %>
+  <% } %>
+
