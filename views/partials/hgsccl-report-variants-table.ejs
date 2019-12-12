@@ -1,45 +1,82 @@
 <style>
+  .variants-table {
+    background-color: white;
+  }
+  .variants-table td {
+    font-size: 9pt;
+    text-align: left;
+  }
+  .variants-table th {
+    font-size: 10pt;
+    color: rgb(121, 121, 121);
+    text-align: left;
+    padding-left: 10px; padding-right: 10px
+  }
+  .variants-table tr {
+    border: 1px solid black !important;
+  }
+
 </style>
-<table>
-  <tr>
-    <th>Disease</th>
-    <th>Inheritance</th>
-    <th>Gene</th>
-    <th>Type</th>
-    <th>Variant</th>
-    <th>Zygosity</th>
-    <th>Interpretation</th>
-    <th>Notes</th>
-  </tr>
-  <% for (var i=0 ; i < variants.length; i++) { %> 
-    <tr>
-      <td><%= variants[i].diseases %></td>
-      <td><%= variants[i].inheritance %></td>
-      <td><%= variants[i].gene %></td>
-      <td><%= variants[i].gene %></td>
-      <!-- Variant Column-->
-      <td>
-        <!-- SNV-->
-        <% if(variants[i].type === 'SNV') { %>
-          <%= variants[i].cDNA %> <br/>
-
-          <% if((variants[i].proteinChange !== null) || (variants[i].proteinChange !== undefined) || (!variants[i].proteinChange == '')) { %> 
-            <%= variants[i].proteinChange %>
-          <% } %>
+<div class="component border">
+  <table class="variants-table" border="1">
+      <tr>
+        <th>Disease</th>
+        <th>Inheritance</th>
+        <th>Gene</th>
+        <th>Type</th>
+        <th>Variant</th>
+        <th>Zygosity</th>
+        <th>Interpretation</th>
+        <th>Notes</th>
+      </tr>
+      <% for (var i=0 ; i < variants.length; i++) { %> 
+        <tr>
           
-          <!-- Transcript -->
-          <%= variants[i].transcript %>
-        <% } %>
-        
-        <!-- CNV -->
-        <% if(variants[i].type === 'CNV') { %>
-          <%= variants[i].structuralChangeType %><br/>
-          <%= variants[i].geneRegion %>
-          
-          <!-- Transcript -->
-          <%= variants[i].transcript %>
-      </td>
-
-    </tr>
-  <% } %>
-</table>
+          <!-- Disease-->
+          <td><%= variants[i].diseases %></td>
+    
+          <!-- Inheritance -->
+          <td><%= variants[i].inheritance %></td>
+    
+          <!-- Gene -->
+          <td><%= variants[i].gene %></td>
+    
+          <!-- Type-->
+          <td><%= variants[i].type %></td>
+    
+          <!-- Variant Column-->
+          <td>
+              <!-- SNV-->
+              <% if(variants[i].type.includes('SNV')) { %>
+                <%= variants[i].cDNA %> <br/>
+      
+                <% if((variants[i].proteinChange !== null) || (variants[i].proteinChange !== undefined) || (!variants[i].proteinChange == '')) { %> 
+                  <%= variants[i].proteinChange %>
+                <% } %>
+                
+                <!-- Transcript -->
+                <%= variants[i].transcript %>
+              <% } %>
+              
+              <!-- CNV -->
+              <% if(variants[i].type.includes('CNV')) { %>
+                <%= variants[i].structuralChangeType %><br/>
+                <%= variants[i].geneRegion %>
+                
+                <!-- Transcript -->
+                <%= variants[i].transcript %>
+              <% } %>
+            </td>
+    
+          <!-- Zygosity -->
+          <td><%= variants[i].zygosity %></td>
+    
+          <!-- Interpretation -->
+          <td><%= variants[i].interpretation %></td>
+    
+          <!-- Notes -->
+          <td><%= variants[i].notes %></td>
+        </tr>
+      <% } %>
+    </table>
+</div>

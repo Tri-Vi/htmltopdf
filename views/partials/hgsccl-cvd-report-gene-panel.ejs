@@ -8,38 +8,29 @@
     <% if(panelFinding.toLowerCase() === 'positive') { %>
       <div class="component border-gene-panel-positive">
         <div class="title positive">Section 1:: 158 Cardiac Gene Panel: <%= panelFinding %></div>
-        <!-- Combined SNV + CNV  -->
-        <!-- Pathogenic and Likely Pathogenic Variants -->
-        <%- include('./partials/hgsccl-cvd-report-pathogenic-variants', {
-          variants: report.variants,
-          report: report
-        }); %>
 
-        <!-- VUS - SNV + CNV-->
-        <%- include('./partials/hgsccl-cvd-report-unknown-significance', {
+ 
+        
+        <%- include('./hgsccl-cvd-report-pathogenic-variants', {
           variants: report.variants,
-          report: report
-        }); %>
+          report: report,
+          reportableVariants: reportableVariants
+        }); %> 
+
+
       </div>
     <% } %>
 
     <!-- Negative -->
-    <%= if(panelFinding.toLowerCase() === 'negative') { %>
+    <% if(panelFinding.toLowerCase() === 'negative') { %>
       <div class="component border-gene-panel-negative">
         <div class="title negative">Section 1 :: 158 Cardiac Gene Panel: <%= panelFinding %></div>
-
-        <!-- Pathogenic and Likely Pathogenic Variants -->
-        <!-- Combined SNV + CNV  -->
-        <%- include('./partials/hgsccl-cvd-report-pathogenic-variants', {
+        
+        <%- include('./hgsccl-cvd-report-pathogenic-variants', {
           variants: report.variants,
           report: report
-        }); %>
+        }); %> 
 
-        <!-- VUS - SNV + CNV-->
-        <%- include('./partials/hgsccl-cvd-report-unknown-significance', {
-          variants: report.variants,
-          report: report
-        }); %>
       </div>
     <% } %>
   </div>

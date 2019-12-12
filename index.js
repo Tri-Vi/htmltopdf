@@ -90,7 +90,7 @@ try {
     selectedReport.state = "Approved";
     selectedReport.stateChanged = new Date();
 
-    var reportableVariants =  _reportableVariant();
+    var reportableVariants =  _reportableVariant(selectedReport.variants);
 
     // QR Code
     // var qr_string = "selectedReport.reportIdentifier";
