@@ -366,7 +366,12 @@
 <br>
 
 <!-- Report PRS -->
-<%- include('./partials/hgsccl-cvd-report-polygenic-risk-score'); %>
+<%- include('./partials/hgsccl-cvd-report-polygenic-risk-score', {
+  prsFinding: report.prsFinding,
+  prsSummary: report.prsSummary,
+  prsRecommendationDetail: report.prsRecommendationDetail,
+  prsDisclaimer: report.prsDisclaimer
+}); %>
 <br>
 
 <!-- Report LPA -->

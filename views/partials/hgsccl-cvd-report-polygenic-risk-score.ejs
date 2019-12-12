@@ -1,1 +1,45 @@
-this is report polygenic risk score
+<style>
+  .title {
+    font-size: 12pt;
+    font-family: 'Open Sans', sans-serif;;
+  }
+  .content {
+    font-size: 11pt;
+    font-family: 'Open Sans', sans-serif;;
+  }
+  .prsDisclaimer{
+    font-size: 10pt;
+    font-family: 'Open Sans', sans-serif;;
+  }
+</style>
+<!-- HIGH -->
+<% if(prsFinding.toLowerCase() === 'high') { %>
+  <div class="component border-prs-high">
+    <div class="title highRiskScore">Section 2 :: Coronary Artery Disease Polygenic Risk Score: <%= prsFinding %></div>
+    <p class="content"><%= prsSummary %></p>
+    <p class="content"><%= prsRecommendationDetail %></p>
+    <p class="content prsDisclaimer"><%= prsDisclaimer %></p>
+  </div>
+<% } %>
+
+<!-- MODERATE -->
+<% if(prsFinding.toLowerCase() === 'moderate') { %>
+  <div class="component border-prs-moderate">
+    <div class="title moderateRiskScore">Section 2 :: Coronary Artery Disease Polygenic Risk Score: <%= prsFinding %></div>
+    <p class="content"><%= prsSummary %></p>
+    <p class="content"><%= prsRecommendationDetail %></p>
+    <p class="content prsDisclaimer"><%= prsDisclaimer %></p>
+  </div>
+<% } %>
+
+<!-- LOW -->
+<% if(prsFinding.toLowerCase() === 'low') { %>  
+  <div class="component border-prs-low">
+    <div class="title lowRiskScore">Section 2 :: Coronary Artery Disease Polygenic Risk Score: <%= prsFinding %></div>
+    <p class="content"><%= prsSummary %></p>
+    <p class="content"><%= prsRecommendationDetail %></p>
+    <p class="content prsDisclaimer"><%= prsDisclaimer %></p>
+  </div>
+<% } %>
+
+ 
