@@ -1,1 +1,20 @@
-this is report overall interpretation
+<style>
+  .title {
+     font-size: 13pt;
+   }
+   .content {
+     font-size: 13pt;
+   }
+ </style>
+ <div class="component border">
+  <div class="title">Overall Interpretation</div>
+  <% if((panelManagementRecommendation !== null)&&(panelManagementRecommendation !==undefined)&&(panelManagementRecommendation !== '')) { %>
+    <p class="content">Management Recommendations: <%= panelManagementRecommendation %></p>
+  <% } %>
+
+  <% if((familyScreening !== null) && (familyScreening !== undefined) && (familyScreening !== '')) { %>
+    <p class="content">Family Screening: <%= familyScreening %></p>
+  <% } %>
+  <p class="content"><%= overallInterpretationText %></p>
+ </div>
+ 

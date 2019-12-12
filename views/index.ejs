@@ -350,7 +350,11 @@
 }); -%>
 
 <!-- Report Overal Interpretation-->
-<%- include('./partials/hgsccl-cvd-report-overall-interpretation'); %>
+<%- include('./partials/hgsccl-cvd-report-overall-interpretation', {
+  overallInterpretationText: report.overallInterpretationText,
+  familyScreening: report.familyScreening,
+  panelManagementRecommendation: report.panelManagementRecommendation
+}); %>
 <br>
 
 <!-- Report Gene Panel-->
