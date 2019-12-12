@@ -363,7 +363,6 @@
   report: report,
   reportableVariants: reportableVariants
 }); %>
-<br>
 
 <!-- Report PRS -->
 <%- include('./partials/hgsccl-cvd-report-polygenic-risk-score', {
@@ -372,11 +371,14 @@
   prsRecommendationDetail: report.prsRecommendationDetail,
   prsDisclaimer: report.prsDisclaimer
 }); %>
-<br>
 
 <!-- Report LPA -->
-<%- include('./partials/hgsccl-cvd-report-lpa'); %>
-<br>
+<%- include('./partials/hgsccl-cvd-report-lpa', {
+  lpaRecommendationDetail: report.lpaRecommendationDetail,
+  lpaSummary: report.lpaSummary,
+  lpaFinding: report.lpaFinding,
+  lpaDisclaimer: report.lpaDisclaimer
+}); %>
 
 <!-- Report PGX -->
 <%- include('./partials/hgsccl-cvd-report-pharmacogenetics-finding'); %>
