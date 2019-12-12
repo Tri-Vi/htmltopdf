@@ -1,9 +1,9 @@
 <style>
    
-    .label {
-      text-align: center !important;
+    .summaryLabel {
+      text-align: center;
     }
-    .label.bold {
+    .summaryLabel.bold {
       font-weight: bold;
       color: rgb(34,79,119);
     }
@@ -32,18 +32,18 @@
       box-shadow: 2px 2px rgb(182, 182, 182);
     }
   </style>
-  <div class="layout horizontal center-justified component">
+  <div class="component">
     <table class="testTable">
       <tr>
         <% if(isPhiChecked) { %>
-          <td class="label bold">
+          <td class="summaryLabel bold">
             Patient:
           </td>
           <td class="data">
             <%= order.patient.patientFirstName %> <%=order.patient.patientMiddleName %> <%= order.patient.patientLastName %>
           </td>
         <% } %> 
-        <td class="label bold">
+        <td class="summaryLabel bold">
           Reason for Testing:
         </td>
         <td class="data">
@@ -51,15 +51,15 @@
         </td>
       </tr>
       <tr>
-        <template is="dom-if" if="[[isPhiChecked]]">
-          <td class="label">
+        <% if(isPhiChecked) { %>
+          <td class="summaryLabel">
             Date of Birth:
           </td>
           <td class="data">
             <%= order.patient.patientDOB %>
           </td>
-        </template>
-        <td class="label">
+        <% } %>
+        <td class="summaryLabel">
           Ordered By:
         </td>
         <td class="data">
@@ -68,7 +68,7 @@
       </tr>
       <tr>
         <% if(isPhiChecked) { %>
-          <td class="label">
+          <td class="summaryLabel">
               MRN:
             </td>
             <td class="data">
@@ -77,7 +77,7 @@
         <% } %>  
 
         <% if(reportState == 'Approved'){ %> 
-          <td class="label">
+          <td class="summaryLabel">
               Report Date:
             </td>
             <td class="data">
