@@ -1,0 +1,90 @@
+
+<html>
+<head>
+  <style>
+    @font-face {
+      font-family: 'Open Sans',
+      src: url('/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+    }
+    .reportHeader {
+      width: 100%;
+      font-size: 10px;
+      height: 80px;
+      margin-left: 15px;
+      margin-right:15px;
+    }
+    .layout {
+      display: flex;
+      width: 100%;
+    }
+    .horizontal {
+      display: flex;
+      flex-direction: row;
+    }
+    .vertical {
+      display: flex;
+      flex-direction: column;
+    }
+    .cvdlogo {
+      height: 45px;
+      margin-right: 210px;
+    }
+    .bcmlogo {
+      height: 45px;
+    }
+    .hgsclogo {
+      height: 45px;
+    }
+    .qrcode {
+      height: 50px;
+    }
+
+    .summaryTitle {
+      text-align: center;
+    }
+    .patientTitle {
+      text-align: center;
+      font-weight: normal;
+    }
+    p.summaryTitle  {
+      font-size: 12pt;
+      font-family: 'Open Sans', sans-serif;
+      letter-spacing: 2px;
+      font-weight: bold;
+      font-family: 'Open Sans', sans-serif;
+      color: rgb(34, 79, 119);
+      margin-top: -2px;
+    }
+    p.patientTitle {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 7.5pt;
+      color: rgb(64, 103, 138);
+      margin-top: -2px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="reportHeader horizontal layout">
+    <div class="vertical layout first-item">
+        <img src="<%= headerData.cvd_logo %>" class="cvdlogo"></img>
+        <p class="summaryTitle">Genetics Report</p>
+    </div>
+
+    <div class="second-item layout">
+      <div class="vertical">
+        <div class="horizontal">
+          <img src="<%= headerData.bcm_logo %>" class="bcmlogo"></img>
+          <img src="<%= headerData.hgsc_logo %>" class="hgsclogo"></img>
+          <img src="<%= headerData.qr_code %>" class="qrcode"></img>
+        </div>
+        <% if(headerData.isPhiChecked) { %>
+          <div class="patientInfo">
+            <p class="patientTitle">Patient: <%= headerData.patientName %></p>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

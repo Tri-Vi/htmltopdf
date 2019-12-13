@@ -241,18 +241,6 @@
 
 </style>
 
-<!-- Summary Header-->
-<%- include('./partials/hgsccl-cvd-report-summary-header',{
-  order: report.order,
-  report_identifier: report.reportIdentifier,
-  isPhiChecked: isPhiChecked,
-  cvdlogo: cvd_logo,
-  bcmlogo: bcm_logo,
-  hgsclogo: hgsc_logo,
-  qrcode: qr_code
-}); %>
-<br>
-
 <!-- Summary Test Info-->
 <%- include('./partials/hgsccl-cvd-report-summary-test-info', {
   testInfoSummary: report.testInfoSummary
@@ -323,17 +311,6 @@
 <div style="page-break-before: always;"></div>
 
 <hr class="horizontalLine">
-
-<!-- Report Header-->
-<%- include('./partials/hgsccl-cvd-report-header', {
-  order: report.order,
-  reportIdentifier: report.reportIdentifier,
-  isPhiChecked: isPhiChecked,
-  cvdlogo: cvd_logo,
-  bcmlogo: bcm_logo,
-  hgsclogo: hgsc_logo,
-  qrcode: qr_code
-}); %>
 
 <!-- Test Info Detail-->
 <%- include('./partials/hgsccl-cvd-report-test-info-detail', {
@@ -416,11 +393,6 @@
     blankSignature: blankSignature
   }); %>
 <% } %>
-
-<!-- Report Footer-->
-<%- include('./partials/hgsccl-cvd-report-footer', {
-  footer: report.footer
-}); %>
 
 
 

@@ -101,11 +101,58 @@ try {
    var dataBuffer = new Buffer.from(qr_code);
    var mediaType = 'PNG';
    var base64_qr_code = imageDataURI.encode(dataBuffer, mediaType);
+
+   var isPhiChecked = true
+
+   //Footer Template
+   var footerTemplate = "";
+   var footerData = {
+     name: "HGSC Clinical Laboratory",
+     address: "One Baylor Plaza",
+     city: "Houston",
+     state: "TX",
+     zipCode: 77030,
+     phone: "713.798.6539",
+     fax: "713.798.5741",
+     website: "www.hgsc.bcm.edu",
+     email: " cvdgenomics@hgsc.bcm.edu",
+     copyright: `Copyright © 2018 HGSC Clinical Laboratory. All rights reserved. ` + selectedReport.footer
+   };
+
+   //Header Template
+   var headerTemplate = "";
+   var headerData = {
+     cvd_logo: base64_cvd_logo,
+     bcm_logo: base64_bcm_logo,
+     hgsc_logo: base64_hgsc_logo,
+     qr_code: base64_qr_code,
+     patientName: selectedReport.order.patient.patientFirstName + ' ' + selectedReport.order.patient.patientMiddleName + ' ' + selectedReport.order.patient.patientLastName,
+     isPhiChecked: isPhiChecked == 'true' || isPhiChecked == true ? true : false
+   };
+
+   // EJS - Render Header
+   await ejs.renderFile(reportHeader, {headerData: headerData}, function(err, str){
+    if(err){
+      db.winston.error("ReportController.findAll", {'user' : user, 'params' : params, 'error': err});
+    } else {
+      headerTemplate = str;
+    }
+  })
+
+  // EJS - Render Footer
+  await ejs.renderFile(reportFooter, {footerData: footerData}, function(err, str){
+    if(err){
+      db.winston.error("ReportController.findAll", {'user' : user, 'params' : params, 'error': err});
+    } else {
+      footerTemplate = str;
+    }
+  });
     
+  // EJS - Render Report
     await ejs.renderFile(template, {
       user: returnedUser,
       report: selectedReport,
-      isPhiChecked: true,
+      isPhiChecked: isPhiChecked,
       cvd_logo: base64_cvd_logo,
       bcm_logo: base64_bcm_logo,
       hgsc_logo: base64_hgsc_logo,
@@ -140,8 +187,14 @@ try {
       path: 'example.pdf',
       format: 'Letter',
       scale: .75,
+      printBackground: true,
       displayHeaderFooter: true,
-      printBackground: true
+      headerTemplate: headerTemplate,
+      footerTemplate: footerTemplate,
+      margin: {
+        top: "130px",
+        bottom: "180px"
+      }
     });
 
     await browser.close();

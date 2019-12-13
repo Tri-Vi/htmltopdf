@@ -1,0 +1,48 @@
+<style>
+  @font-face {
+    font-family: 'Open Sans',
+    src: url('/font/Open_Sans/OpenSans-Regular.ttf')
+  }
+  :root {
+    font-family: 'Open Sans', sans-serif;
+  }
+  .footerTemplate {
+    width: 100%;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 4.5pt;
+  }
+  .rowTwo {
+    float: right;
+    margin-top: 10px;
+  }
+  a {
+    text-decoration: none;
+  }
+  .footerTemplate img {
+    width: 20px;
+    height: 20px;
+  }
+  table {
+    width: 100%;
+  }
+</style>
+<div class="footerTemplate">
+  <p class="rowOne">
+    <b><%= footerData.name %></b> &bull;
+    <%= footerData.address %>,
+    <%= footerData.city %>,
+    <%= footerData.state %>,
+    <%= footerData.zipCode %>
+    <br>
+    Phone: <%= footerData.phone %> &bull;
+    Fax: <%= footerData.fax %> &bull;
+    <a href="<%= footerData.website %>"><%= footerData.website %></a> &bull;
+    <a href="<%= footerData.email %>"><%= footerData.email %></a>
+    <br><br>
+    <%= footerData.copyright %>
+  </p>
+  <p class="rowTwo">
+    <span class="pageNumber">
+  </p>
+</div>
