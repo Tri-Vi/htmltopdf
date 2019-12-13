@@ -1,1 +1,54 @@
-this is report pharmacogenetics findings
+<style>
+  .title {
+    font-size: 12pt;
+  }
+
+  .pgxDisclaimer {
+    font-size: 10pt;
+  }
+</style>
+<!-- Positive -->
+<% if(pgxFinding.toLowerCase() === 'positive') { %>
+  <div class="component border-pgx-positive">
+    <div class="title pharmacoPositive">Section 4 :: Pharmacogenetics Findings </div>
+
+    <!-- Pharmogenomic Profile -->
+    <%- include('./hgsccl-cvd-report-pharmacogenomic-profile', {
+      pgxDescription: pgxDescription,
+      pgxData: pgxData,
+    }); %>
+
+
+    <!-- Interpretation of Pharmacogenomic Variants -->
+    <%- include('./hgsccl-cvd-report-pharmacogenomic-interpretation', {
+      pgxData: pgxData
+    }); %>
+
+    <!-- pgxDisclaimer -->
+    <div>
+      <p class="content pgxDisclaimer"><%= pgxDisclaimer %></p>
+    </div>
+  </div>
+<% } %>
+
+<!-- Negative -->
+<% if(pgxFinding.toLowerCase() === 'negative') { %>
+  <div class="component border-pgx-negative">
+    <div class="title pharmacoNegative">Section 4 :: Pharmacogenetics Findings </div>
+    <!-- Pharmogenomic Profile -->
+    <%- include('./hgsccl-cvd-report-pharmacogenomic-profile', {
+      pgxDescription: pgxDescription,
+      pgxData: pgxData,
+    }); %>
+
+    <!-- Interpretation of Pharmacogenomic Variants -->
+    <%- include('./hgsccl-cvd-report-pharmacogenomic-interpretation', {
+      pgxData: pgxData
+    }); %>
+
+    <!-- pgxDisclaimer -->
+    <div>
+      <p class="content pgxDisclaimer"><%= pgxDisclaimer %></p>
+    </div>
+  </div>
+  <% } %>

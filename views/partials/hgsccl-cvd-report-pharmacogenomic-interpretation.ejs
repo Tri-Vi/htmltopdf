@@ -1,0 +1,11 @@
+<style>
+  .content {
+    font-size: 11pt;
+  }
+</style>
+
+<div class="content bold">Interpretation of Pharmacogenomic Variants</div>
+
+<% for (var i = 0; i < pgxData.length;  i++) { %>
+  <p class="content"><%= pgxData[i].interpretation %></p>
+<% } %>

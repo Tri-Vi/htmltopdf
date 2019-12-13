@@ -381,8 +381,12 @@
 }); %>
 
 <!-- Report PGX -->
-<%- include('./partials/hgsccl-cvd-report-pharmacogenetics-finding'); %>
-<br>
+<%- include('./partials/hgsccl-cvd-report-pharmacogenetics-finding', {
+  pgxFinding: report.pgxFinding,
+  pgxDescription: report.pgxDescription,
+  pgxData: report.pgxData,
+  pgxDisclaimer: report.pgxDisclaimer
+}); %>
 
 <!-- Report Methodology -->
 <%- include('./partials/hgsccl-cvd-report-methodology'); %>
