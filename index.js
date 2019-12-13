@@ -167,7 +167,8 @@ try {
       positivePgxIcon: base64_positivePgxIcon,
       negativePgxIcon: base64_negativePgxIcon,
       blankSignature: base64_blankSignature,
-      reportableVariants: reportableVariants
+      reportableVariants: reportableVariants,
+      htmlString: '<h1 style="color:red;">htmlSTring<br> test 1<br>test 2<h1><h2>Header 2</h2><h3 style="color:blue;">Header 3</h3>'
 
     }, function(err,str){
       if(err){
