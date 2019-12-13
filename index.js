@@ -140,6 +140,7 @@ try {
       path: 'example.pdf',
       format: 'Letter',
       scale: .75,
+      displayHeaderFooter: true,
       printBackground: true
     });
 

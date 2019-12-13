@@ -315,6 +315,11 @@
   }); %>
 <% } %>
 
+<!-- Report Footer-->
+<%- include('./partials/hgsccl-cvd-report-footer', {
+  footer: report.footer
+}); %>
+
 <div style="page-break-before: always;"></div>
 
 <hr class="horizontalLine">
@@ -394,12 +399,14 @@
 }); %>
 
 <!-- Report Gene Coverage -->
-<%- include('./partials/hgsccl-cvd-report-gene-coverage'); %>
-<br>
+<%- include('./partials/hgsccl-cvd-report-gene-coverage', {
+  geneCoverageText: report.geneCoverageText
+}); %>
 
 <!-- Report References -->
-<%- include('./partials/hgsccl-cvd-report-references'); %>
-<br>
+<%- include('./partials/hgsccl-cvd-report-references', {
+  references: report.references
+}); %>
 
 <!-- Report Signature -->
 <!-- Signature-->
@@ -411,7 +418,9 @@
 <% } %>
 
 <!-- Report Footer-->
-<%- include('./partials/hgsccl-cvd-report-footer', {user: user}); %>
+<%- include('./partials/hgsccl-cvd-report-footer', {
+  footer: report.footer
+}); %>
 
 
 

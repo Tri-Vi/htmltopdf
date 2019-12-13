@@ -1,1 +1,19 @@
-this is report references
+<style>
+    .title {
+      font-size: 12pt;
+    }
+    .content {
+      font-size: 10pt;
+    }
+  </style>
+<div class="component border">
+  <div class="title">References</div>
+  <div class="content">
+    <ol>
+      <% for(var i = 0; i < references.length; i++) { %>
+        <li><%= references[i] %></li>
+      <% } %>
+    </ol>
+  </div>
+</div>
+  
