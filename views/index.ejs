@@ -389,8 +389,9 @@
 }); %>
 
 <!-- Report Methodology -->
-<%- include('./partials/hgsccl-cvd-report-methodology'); %>
-<br>
+<%- include('./partials/hgsccl-cvd-report-methodology', {
+  methodology: report.methodology
+}); %>
 
 <!-- Report Gene Coverage -->
 <%- include('./partials/hgsccl-cvd-report-gene-coverage'); %>
