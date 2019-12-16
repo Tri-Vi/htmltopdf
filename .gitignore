@@ -27,3 +27,4 @@ public/img/report_icons/low_prs_icon.png
 public/img/report_icons/moderate_prs_icon.png
 public/img/report_icons/neg_lpa_icon.png
 *.png
+*.pdf
